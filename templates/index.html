@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evermile - Przeglądarka E-mail</title>
+</head>
+<body>
+    <h1>Przeglądarka E-mail Evermile</h1>
+    <form action="/send" method="post">
+        <input type="text" name="email" placeholder="Adres e-mail" required>
+        <textarea name="content" placeholder="Treść wiadomości" required></textarea>
+        <button type="submit">Wyślij</button>
+    </form>
+    <h2>Odebrane e-maile:</h2>
+    <ul>
+        {% for email in emails %}
+            <li>{{ email.address }}: {{ email.content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
